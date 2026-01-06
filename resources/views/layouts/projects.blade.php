@@ -7,16 +7,18 @@
     <title>@yield('title')</title>
 </head>
 <body>
-    <h1>
-        @yield('title')
-    </h1>
-    {{-- <h3>
-        @yield('category')
-    </h3>
-    <h5>
-        Tecnologie usate: @yield('tech')
-    </h5> --}}
-
-    @yield('content')
+    <div class="container">
+        <h1 class="mt-4">
+            @yield('title')
+        </h1>
+        {{-- <h3>
+            @yield('category')
+        </h3>
+        <h5>
+            Tecnologie usate: @yield('tech')
+        </h5> --}}
+        @yield('actions')
+        @yield('content')
+    </div>
 </body>
 </html>
