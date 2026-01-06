@@ -30,7 +30,20 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        return 'Sei nello store';
+        // dd($request);
+        $data = $request->all();
+        // dd($data);
+        $newProject = new Project;
+
+        $newProject->title = $data['title'];
+        // dd($newProject);
+        $newProject->category = $data['category'];
+        $newProject->tech = $data['tech'];
+
+        $newProject->save();
+        // dd($newProject);
+
+        return redirect()->route('projects.show', $newProject);
     }
 
     /**
