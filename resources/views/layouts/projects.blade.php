@@ -16,12 +16,6 @@
         Tecnologie usate: @yield('tech')
     </h5> --}}
 
-    <ul>
-        @foreach ($projects as $project)
-            <li>
-               {{ $project->title }}, {{ $project->category }}
-            </li>
-        @endforeach
-    </ul>
+    @yield('content')
 </body>
 </html>
