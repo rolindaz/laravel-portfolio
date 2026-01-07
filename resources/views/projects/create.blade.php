@@ -13,13 +13,21 @@
             <input type="text" name="title" id="title">
         </div>
         <div class="form-control mb-3">
-            <label for="title">
+            <label for="category_id">
                 Categoria
             </label>
-            <input type="text" name="category" id="category">
+            <select name="category_id" id="category_id">
+                @foreach ($categories as $category)
+
+                <option value="{{ $category->id }}">
+                    {{ $category->name }}
+                </option>
+                    
+                @endforeach
+            </select>
         </div>
         <div class="form-control mb-3">
-            <label for="title">
+            <label for="tech">
                 Tecnologia utilizzata
             </label>
             <input type="text" name="tech" id="tech">

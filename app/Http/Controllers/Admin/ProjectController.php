@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use App\Models\Category;
 
 class ProjectController extends Controller
 {
@@ -22,7 +23,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('projects.create');
+        $categories = Category::all();
+        return view('projects.create', compact('categories'));
     }
 
     /**
@@ -37,7 +39,7 @@ class ProjectController extends Controller
 
         $newProject->title = $data['title'];
         // dd($newProject);
-        $newProject->category = $data['category'];
+        $newProject->category_id = $data['category_id'];
         $newProject->tech = $data['tech'];
 
         $newProject->save();
@@ -60,7 +62,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('projects.edit', compact('project'));
+        $categories = Category::all();
+        return view('projects.edit', compact(['project', 'categories']));
     }
 
     /**
@@ -70,7 +73,7 @@ class ProjectController extends Controller
     {
         $data = $request->all();
         $project->title = $data['title'];
-        $project->category = $data['category'];
+        $project->category_id = $data['category_id'];
         $project->tech = $data['tech'];
 
         $project->update();
