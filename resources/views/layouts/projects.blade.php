@@ -8,6 +8,7 @@
 </head>
 <body>
     <div class="container">
+        <x-go-back-button/>
         <h1 class="mt-4">
             @yield('title')
         </h1>

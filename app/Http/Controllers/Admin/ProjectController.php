@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use App\Models\Tag;
 use App\Models\Category;
 
 class ProjectController extends Controller
@@ -15,7 +16,8 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::all();
-        return view('projects.index', compact('projects'));
+        $tags = Tag::all();
+        return view('projects.index', compact(['projects', 'tags']));
     }
 
     /**
@@ -54,7 +56,8 @@ class ProjectController extends Controller
     public function show(Project $project)
     {
         // dd($project->category);
-        return view('projects.show', compact('project'));
+        $tags = Tag::all();
+        return view('projects.show', compact(['project', 'tags']));
     } 
 
     /**

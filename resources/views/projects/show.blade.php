@@ -54,5 +54,14 @@
     <li>
         Tecnologia utilizzata: {{ $project->tech }}
     </li>
+    <li class="d-flex gap-2 mt-3">
+        @foreach ($project->tags as $tag)
+                    <div style="
+                    background-color: {{ $tag->color }};"
+                    class="rounded-2 px-3">
+                        {{ $tag->name }}
+                    </div>
+                @endforeach
+    </li>
 </ul>
 @endsection
