@@ -18,6 +18,7 @@ class CategoriesTableSeeder extends Seeder
             $newCategory = new Category;
 
             $newCategory->name = $faker->word();
+            $newCategory->description = $faker->paragraph();
 
             $newCategory->save();
         }
