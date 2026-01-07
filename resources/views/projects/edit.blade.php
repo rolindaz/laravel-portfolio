@@ -23,7 +23,7 @@
             </label>
             <select name="category_id" id="category_id">
                 @foreach ($categories as $category)
-                    <option value="{{ $category->id }}">
+                    <option value="{{ $category->id }}" {{ $project->category_id == $category->id ? 'selected' : '' }}>
                         {{ $category->name }}
                     </option>
                 @endforeach
