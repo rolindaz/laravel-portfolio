@@ -17,7 +17,6 @@ class ProjectsTableSeeder extends Seeder
         for($i=0; $i<10; $i++){
             $newProject = new Project;
             $newProject->title = $faker->sentence();
-            $newProject->category_id = $faker->word();
             $newProject->tech = $faker->word();
             $newProject->save();
         }
