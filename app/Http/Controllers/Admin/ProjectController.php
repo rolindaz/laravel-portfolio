@@ -89,7 +89,11 @@ class ProjectController extends Controller
 
         $project->update();
 
-        $project->tags()->sync($data['tags']);
+        if($request->has('tags')) {
+            $project->tags()->sync($data['tags']);
+        } else {
+            $project->tags()->detach();
+        }
 
         return redirect()->route('projects.show', $project);
     }
