@@ -26,7 +26,8 @@ class ProjectController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('projects.create', compact('categories'));
+        $tags = Tag::all();
+        return view('projects.create', compact(['categories', 'tags']));
     }
 
     /**
@@ -66,7 +67,8 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $categories = Category::all();
-        return view('projects.edit', compact(['project', 'categories']));
+        $tags = Tag::all();
+        return view('projects.edit', compact(['project', 'categories', 'tags']));
     }
 
     /**

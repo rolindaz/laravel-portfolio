@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="container">
-    <form action="{{ route('projects.store') }}" method="POST">
+    <form class="w-50" action="{{ route('projects.store') }}" method="POST">
         @csrf
         <div class="form-control mb-3">
             <label for="title">
@@ -31,6 +31,16 @@
                 Tecnologia utilizzata
             </label>
             <input type="text" name="tech" id="tech">
+        </div>
+        <div class="form-control mb-3 d-flex gap-4 flex-wrap">
+            @foreach ($tags as $tag)
+                <div class="form-check">
+                    <input class="form-check-input" name="tags[]" type="checkbox" value="{{ $tag->id }}" id="tag-{{ $tag->id }}">
+                    <label class="form-check-label" for="tag-{{ $tag->id }}">
+                        {{ $tag->name }}
+                    </label>
+                </div>      
+            @endforeach
         </div>
         <button type="submit" class="btn btn-warning">
             Salva
