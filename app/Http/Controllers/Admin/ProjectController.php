@@ -48,7 +48,9 @@ class ProjectController extends Controller
         $newProject->save();
         // dd($newProject);
 
-        $newProject->tags()->attach($data['tags']);
+        if($request->has('tags')) {
+            $newProject->tags()->attach($data['tags']);
+        }
 
         return redirect()->route('projects.show', $newProject);
     }
