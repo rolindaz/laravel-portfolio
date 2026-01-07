@@ -22,7 +22,7 @@
                 <a href="{{ route('projects.show', $project) }}">
                     {{ $project->title }}
                 </a>
-                ,{{ $project->category }}
+                ,{{ $project->tech }}
             </li>
         @endforeach
     </ul>

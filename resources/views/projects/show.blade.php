@@ -49,7 +49,7 @@
 @section('content')
 <ul>
     <li>
-        Categoria: {{ $project->category }}
+        Categoria: {{ $project->category->name }}, {{ $project->category->description }}
     </li>
     <li>
         Tecnologia utilizzata: {{ $project->tech }}
