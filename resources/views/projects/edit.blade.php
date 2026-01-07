@@ -39,6 +39,16 @@
             id="tech"
             value="{{ $project->tech }}">
         </div>
+        <div class="form-control mb-3 d-flex gap-4 flex-wrap">
+            @foreach ($tags as $tag)
+                <div class="form-check">
+                    <input class="form-check-input" name="tags[]" type="checkbox" value="{{ $tag->id }}" id="tag-{{ $tag->id }}" {{ $project->tags->contains($tag->id) ? 'checked' : '' }}>
+                    <label class="form-check-label" for="tag-{{ $tag->id }}">
+                        {{ $tag->name }}
+                    </label>
+                </div>      
+            @endforeach
+        </div>
         <button type="submit" class="btn btn-warning">
             Salva
         </button>

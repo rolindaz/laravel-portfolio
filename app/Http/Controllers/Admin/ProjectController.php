@@ -70,7 +70,11 @@ class ProjectController extends Controller
     {
         $categories = Category::all();
         $tags = Tag::all();
-        return view('projects.edit', compact(['project', 'categories', 'tags']));
+        return view('projects.edit', compact([
+            'project',
+            'categories',
+            'tags'
+        ]));
     }
 
     /**
@@ -84,6 +88,8 @@ class ProjectController extends Controller
         $project->tech = $data['tech'];
 
         $project->update();
+
+        $project->tags()->sync($data['tags']);
 
         return redirect()->route('projects.show', $project);
     }
