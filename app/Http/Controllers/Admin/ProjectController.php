@@ -99,6 +99,14 @@ class ProjectController extends Controller
         $project->title = $data['title'];
         $project->category_id = $data['category_id'];
         $project->tech = $data['tech'];
+        
+        // dd($data);
+
+        if(array_key_exists('image', $data)) {
+            Storage::delete($project->image);
+            $img_url = Storage::putFile('projects', $data['image']);
+            $project->image = $img_url;
+        };
 
         $project->update();
 
@@ -116,6 +124,12 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        if ($project->image) {
+            Storage::delete($project->image);
+        }
+        if($project->tags) {
+           $project->tags()->detach();
+        }
         $project->delete();
         return redirect()->route('projects.index');
     }

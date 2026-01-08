@@ -44,6 +44,7 @@
         </div>
         <div class="form-control mb-3 d-flex gap-4 flex-wrap">
             <label for="image">
+                Immagine
             </label>
             <input id="image" name="image" type="file">
         </div>
