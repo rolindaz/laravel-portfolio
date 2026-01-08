@@ -2,7 +2,7 @@
 
 return [
     [
-        "type_id" => "",
+        "type_id" => "1",
         "title" => "Spotify Web",
         "overview" => "Spotify Web interface reproduction as an HTML/CSS practice exercise. No interactive functions were implemented. It just looks cute!",
         "repo_link" => "https://github.com/rolindaz/html-css-spotifyweb",
@@ -10,7 +10,7 @@ return [
         "image" => ""
     ],
     [
-        "type_id" => "",
+        "type_id" => "1",
         "title" => "Giallo Booleano",
         "overview" => "Giallo Zafferano’s sample Tiramisù recipe page reproduction as an HTML/CSS practice exercise for responsive designs. No interactive functions were implemented, except for a video preview.",
         "repo_link" => "https://github.com/rolindaz/htmlcss-responsive-layout/blob/main/index.html",
@@ -18,7 +18,7 @@ return [
         "image" => ""
     ],
     [
-        "type_id" => "",
+        "type_id" => "1",
         "title" => "Boolando",
         "overview" => "Zalando products page reproduction as an HTML/CSS practice exercise for e-commerce websites. No interactive functions were implemented.",
         "repo_link" => "https://github.com/rolindaz/html-css-boolando",
@@ -26,7 +26,7 @@ return [
         "image" => ""
     ],
     [
-        "type_id" => "",
+        "type_id" => "1",
         "title" => "Dropbox",
         "overview" => "Dropbox business plans page reproduction as an HTML/CSS practice exercise. No interactive functions were implemented.",
         "repo_link" => "https://github.com/rolindaz/htmlcss-dropbox",
@@ -34,7 +34,7 @@ return [
         "image" => ""
     ],
     [
-        "type_id" => "",
+        "type_id" => "1",
         "title" => "DC Comics",
         "overview" => "A DC Comics catalog page reproduction used to practice HTML, CSS, React and Node.js. No interactive functions were implemented.",
         "repo_link" => "https://github.com/rolindaz/react-dc-comics",
@@ -42,7 +42,7 @@ return [
         "image" => ""
     ],
     [
-        "type_id" => "",
+        "type_id" => "2",
         "title" => "BooRoad Travel",
         "overview" => "A small app to create travels and add participants to them, a cooperative project built with React, Vite, JavaScript, HTML, CSS.",
         "repo_link" => "https://github.com/edoardolova/BooRoad-travel",
@@ -50,7 +50,7 @@ return [
         "image" => ""
     ],
     [
-        "type_id" => "",
+        "type_id" => "3",
         "title" => "Click'n'Cook",
         "overview" => "- A complete food-based e-commerce that was presented as final project for my web development course. A cooperative effort made with MySql, React, JavaScript, Express, Node, HTML, CSS.",
         "repo_link" => "",
