@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Project;
 use App\Models\Tag;
-use App\Models\Category;
+use App\Models\Type;
 use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
@@ -26,9 +26,9 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
+        $types = Type::all();
         $tags = Tag::all();
-        return view('projects.create', compact(['categories', 'tags']));
+        return view('projects.create', compact(['types', 'tags']));
     }
 
     /**
@@ -43,7 +43,7 @@ class ProjectController extends Controller
 
         $newProject->title = $data['title'];
         // dd($newProject);
-        $newProject->category_id = $data['category_id'];
+        $newProject->Type_id = $data['Type_id'];
         $newProject->tech = $data['tech'];
 
         // dd($data);
@@ -71,7 +71,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        // dd($project->category);
+        // dd($project->Type);
         $tags = Tag::all();
         return view('projects.show', compact(['project', 'tags']));
     } 
@@ -81,11 +81,11 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        $categories = Category::all();
+        $types = Type::all();
         $tags = Tag::all();
         return view('projects.edit', compact([
             'project',
-            'categories',
+            'types',
             'tags'
         ]));
     }
@@ -97,7 +97,7 @@ class ProjectController extends Controller
     {
         $data = $request->all();
         $project->title = $data['title'];
-        $project->category_id = $data['category_id'];
+        $project->Type_id = $data['Type_id'];
         $project->tech = $data['tech'];
         
         // dd($data);
