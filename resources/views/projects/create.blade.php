@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="container">
-    <form class="w-50" action="{{ route('projects.store') }}" method="POST">
+    <form class="w-50" action="{{ route('projects.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-control mb-3">
             <label for="title">
@@ -41,6 +41,11 @@
                     </label>
                 </div>      
             @endforeach
+        </div>
+        <div class="form-control mb-3 d-flex gap-4 flex-wrap">
+            <label for="image">
+            </label>
+            <input id="image" name="image" type="file">
         </div>
         <button type="submit" class="btn btn-warning">
             Salva

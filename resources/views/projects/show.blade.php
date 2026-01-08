@@ -48,6 +48,9 @@
 
 @section('content')
 <ul>
+    @if($project->image)
+    <img src="{{ asset('storage/' . $project->image) }}" alt="copertina">
+    @endif
     <li>
         Categoria: {{ $project->category->name }}, {{ $project->category->description }}
     </li>

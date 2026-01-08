@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Project;
 use App\Models\Tag;
 use App\Models\Category;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -44,6 +45,16 @@ class ProjectController extends Controller
         // dd($newProject);
         $newProject->category_id = $data['category_id'];
         $newProject->tech = $data['tech'];
+
+        // dd($data);
+
+        if(array_key_exists('image', $data)) {
+            // dump("l'immagine c'è");
+            $img_url = Storage::putFile('projects', $data['image']);
+            $newProject->image = $img_url;
+        }
+
+        // dd($data);
 
         $newProject->save();
         // dd($newProject);
