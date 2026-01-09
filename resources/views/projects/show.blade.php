@@ -52,7 +52,7 @@
         <img class="img-fluid w-50" src="{{ asset('storage/' . $project->image) }}" alt="copertina">
     @endif
     <li>
-        Categoria: {{ $project->category->name }}, {{ $project->category->description }}
+        Type: {{ $project->type->name }}, {{ $project->type->description }}
     </li>
     <li>
         Tecnologia utilizzata: {{ $project->tech }}

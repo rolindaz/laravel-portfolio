@@ -1,13 +1,13 @@
 @extends('layouts.projects')
 
-@section('title', 'I miei progetti')
+@section('title', 'Dashboard')
 
 @section('actions')
 
 <div class="m-4">
     <a href="{{ route('projects.create') }}">
             <button class="btn btn-success">
-                Aggiungi un nuovo progetto
+                + New Project
             </button>
     </a>  
 </div>
@@ -16,6 +16,52 @@
 @endsection
 
 @section('content')
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">
+        Thumbnail
+    </th>
+      <th scope="col">
+        Title
+    </th>
+      <th scope="col">
+        Tech
+    </th>
+      <th scope="col">
+        Added
+    </th>
+    <th scope="col">
+        Last Updated
+    </th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach ($projects as $project)
+    <tr>
+      <td>
+        <div class="thumbnail">
+            <img src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->name . 'Thumbnail'}}">
+        </div>
+      </td>
+      <td>
+        {{ $project->title }}
+      </td>
+      <td>
+        @foreach ($project->technologies as $tech)
+            {{ $tech->name . ' / ' }}
+        @endforeach
+      </td>
+      <td>
+        {{ $project->created_at }}
+      </td>
+      <td>
+        {{ $project->updated_at }}
+      </td>
+    </tr>
+    @endforeach
+  </tbody>
+</table>
 <ul>
         @foreach ($projects as $project)
             <li class="d-flex gap-2">
@@ -23,7 +69,7 @@
                     {{ $project->title }}
                 </a>
                 , Tecnologia utilizzata: {{ $project->tech }}
-                , Categoria: {{ $project->category->name }}
+                , Tipologia: {{ $project->type->name }}
                 , Tags: 
                 @foreach ($project->tags as $tag)
                     <div style="
