@@ -13,14 +13,14 @@
             <input type="text" name="title" id="title">
         </div>
         <div class="form-control mb-3">
-            <label for="category_id">
-                Categoria
+            <label for="type_id">
+                Tipologia
             </label>
-            <select name="category_id" id="category_id">
-                @foreach ($categories as $category)
+            <select name="type_id" id="type_id">
+                @foreach ($types as $type)
 
-                <option value="{{ $category->id }}">
-                    {{ $category->name }}
+                <option value="{{ $type->id }}">
+                    {{ $type->name }}
                 </option>
                     
                 @endforeach

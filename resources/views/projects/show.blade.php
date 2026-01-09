@@ -2,6 +2,8 @@
 
 @section('title', $project->title)
 
+<x-projects.go-back-button/>
+
 @section('actions')
 <div class="d-flex gap-3 my-4">
     <a href="{{ route('projects.edit', $project) }}">
