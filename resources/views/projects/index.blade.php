@@ -12,7 +12,6 @@
     </a>  
 </div>
 
-
 @endsection
 
 @section('content')
@@ -40,45 +39,31 @@
     @foreach ($projects as $project)
     <tr>
       <td>
-        <div class="thumbnail">
+        <a class="text-decoration-none text-black" href="{{ route('projects.show', $project) }}">
+          <div class="thumbnail">
             <img src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->name . 'Thumbnail'}}">
-        </div>
+          </div>
+        </a>
       </td>
       <td>
-        {{ $project->title }}
+        <a class="text-decoration-none text-black" href="{{ route('projects.show', $project) }}">
+          {{ $project->title }}
+        </a>
       </td>
       <td>
-        @foreach ($project->technologies as $tech)
-            {{ $tech->name . ' / ' }}
+        @foreach ($project->technologies as $index => $tech)
+            {{ $tech->name }} 
+            @if (!$loop->last) / @endif
         @endforeach
       </td>
       <td>
-        {{ $project->created_at }}
+        {{ $project->created_at->diffForHumans() }}
       </td>
       <td>
-        {{ $project->updated_at }}
+        {{ $project->updated_at->diffForHumans() }}
       </td>
     </tr>
     @endforeach
   </tbody>
 </table>
-<ul>
-        @foreach ($projects as $project)
-            <li class="d-flex gap-2">
-                <a href="{{ route('projects.show', $project) }}">
-                    {{ $project->title }}
-                </a>
-                , Tecnologia utilizzata: {{ $project->tech }}
-                , Tipologia: {{ $project->type->name }}
-                , Tags: 
-                @foreach ($project->tags as $tag)
-                    <div style="
-                    background-color: {{ $tag->color }};"
-                    class="rounded-2 px-3">
-                        {{ $tag->name }}
-                    </div>
-                @endforeach
-            </li>
-        @endforeach
-    </ul>
 @endsection
